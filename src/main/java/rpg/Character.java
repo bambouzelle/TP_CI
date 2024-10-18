@@ -1,4 +1,4 @@
-package src.main.java.rpg;
+package rpg;
 
 public class Character {
 
@@ -15,4 +15,15 @@ public class Character {
     public void levelUp() {
         this.level++;
     }
+
+    public String getName() { return name;}
+
+    public String getClassType() { return classType; }
+
+    public int getLevel() { return level; }
+
+    public String displayCharacter() {
+        return "Nom: " + this.name + ", Classe: " + this.classType + ", Niveau: " + this.level;
+    }
 }
+
