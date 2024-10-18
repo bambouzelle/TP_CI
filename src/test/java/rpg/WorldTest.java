@@ -22,7 +22,7 @@ class WorldTest {
     @Test
     void addCharacter() {
         world.addCharacter(character);
-        assertEquals(character, world.getCharacters().getFirst());
+        assertEquals(character, world.getCharacters().get(0));
     }
 
     @Test
