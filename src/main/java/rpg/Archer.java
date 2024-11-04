@@ -1,5 +1,8 @@
 package rpg;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Archer extends Character {
 
     public Archer(String name) {

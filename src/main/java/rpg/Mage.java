@@ -1,5 +1,8 @@
 package rpg;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Mage extends Character {
 
     public Mage(String name) {

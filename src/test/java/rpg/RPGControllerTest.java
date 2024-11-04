@@ -12,13 +12,13 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(classes = RpgApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RPGControllerTest {
+class RPGControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testCreateCharacter() {
+    void testCreateCharacter() {
         // JSON avec le champ "type" pour indiquer la sous-classe Guerrier
         String characterJson = """
             {

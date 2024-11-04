@@ -1,5 +1,8 @@
 package rpg;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Guerrier extends Character {
 
     public Guerrier(String name) {
