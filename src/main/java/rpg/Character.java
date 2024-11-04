@@ -7,9 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 
+@Slf4j
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -57,25 +59,25 @@ public abstract class Character {
 
     public void attack(Character opponent) {
         int baseDamage = 10 * this.level;
-        System.out.println(this.name + " attaque " + opponent.getName() + " et inflige " + baseDamage + " points de dégâts.");
+        log.info("{} attaque {} et inflige {} points de dégâts.", this.name, opponent.getName(), baseDamage);
         opponent.takeDamage(baseDamage);
     }
 
     public void defend() {
         this.isDefending = true;
-        System.out.println(this.name + " se défend et réduira les dégâts reçus au prochain tour.");
+        log.info("{} se défend et réduira les dégâts reçus au prochain tour.", this.name);
     }
 
     public void useSpell(String spellName, Character opponent) {
         for (Spell spell : spells) {
             if (spell.getName().equalsIgnoreCase(spellName) && this.mana >= spell.getManaCost()) {
-                System.out.println(this.name + " utilise " + spell.getName() + " contre " + opponent.getName());
+                log.info("{} utilise {} contre {}", this.name, spell.getName(), opponent.getName());
                 opponent.takeDamage(spell.getDamage());
                 this.mana -= spell.getManaCost();
                 return;
             }
         }
-        System.out.println(this.name + " n'a pas suffisamment de mana ou ne connaît pas ce sort.");
+        log.info("{} n'a pas suffisamment de mana ou ne connaît pas ce sort.", this.name);
     }
 
     public void takeDamage(int damage) {
@@ -84,7 +86,7 @@ public abstract class Character {
             isDefending = false;
         }
         this.health -= damage;
-        System.out.println(this.name + " reçoit " + damage + " points de dégâts.");
+        log.info("{} reçoit {} points de dégâts.", this.name, damage);
     }
 
     // Méthode pour vérifier si le personnage est en vie

@@ -1,7 +1,9 @@
 package rpg;
 
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @NoArgsConstructor
 public class Mage extends Character {
 
@@ -12,7 +14,7 @@ public class Mage extends Character {
     }
 
     public void meditate() {
-        System.out.println(this.name + " médite pour regagner du mana.");
+        log.info("{} médite pour regagner du mana.", this.name);
         this.mana += 30;
     }
 }

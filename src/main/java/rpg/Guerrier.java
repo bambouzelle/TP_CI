@@ -1,7 +1,9 @@
 package rpg;
 
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @NoArgsConstructor
 public class Guerrier extends Character {
 
@@ -13,7 +15,7 @@ public class Guerrier extends Character {
 
     // Spécialisation pour le guerrier
     public void rage() {
-        System.out.println(this.name + " entre en rage, augmentant ses dégâts.");
+        log.info("{} entre en rage, augmentant ses dégâts.", this.name);
         // Logique pour augmenter les dégâts temporairement
     }
 }

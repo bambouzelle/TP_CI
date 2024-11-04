@@ -1,7 +1,9 @@
 package rpg;
 
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @NoArgsConstructor
 public class Archer extends Character {
 
@@ -13,7 +15,7 @@ public class Archer extends Character {
 
     // Spécialisation pour l'archer
     public void camouflage() {
-        System.out.println(this.name + " utilise le camouflage pour éviter les attaques.");
+        log.info("{} utilise le camouflage pour éviter les attaques.", this.name);
         // Logique pour réduire les chances de recevoir des dégâts
     }
 }
