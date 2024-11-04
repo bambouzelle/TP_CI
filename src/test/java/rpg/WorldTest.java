@@ -15,7 +15,7 @@ class WorldTest {
     @BeforeEach
     void setUp() {
         world = new World();
-        character = new Character("Jean", "Warrior");
+        character = new Guerrier("Jean");
         quest = new Quest("Tuer le dragon", Difficulty.MEDIUM, 2);
     }
 

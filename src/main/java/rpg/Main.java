@@ -2,16 +2,14 @@ package rpg;
 
 public class Main {
     public static void main(String[] args) {
-        // Création de plusieurs personnages
-        Character gandalf = new Character("Gandalf", "Mage");
-        Character legolas = new Character("Legolas", "Archer");
+        Character mage = new Mage("Gandalf");
+        Character guerrier = new Guerrier("Aragorn");
+        Character archer = new Archer("Legolas");
 
-        // Affichage des personnages
-        System.out.println(gandalf.displayCharacter());
-        System.out.println(legolas.displayCharacter());
-
-        // Augmenter le niveau de Gandalf
-        gandalf.levelUp();
-        System.out.println(gandalf.displayCharacter()); // Niveau de Gandalf après levelUp
+        // Exemple de séquence de combat
+        mage.attack(guerrier);       // Attaque classique
+        guerrier.defend();           // Défense
+        archer.useSpell("Volley of Arrows", mage); // Utilisation d'un sort
+        mage.useSpell("Fireball", guerrier);       // Utilisation d'un sort
     }
 }

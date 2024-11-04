@@ -1,4 +1,7 @@
 package rpg;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,7 +15,7 @@ public class RPGController {
     @PostMapping("/characters")
     public Character createCharacter(@RequestBody Character character) {
         characters.add(character);
-        return character;
+        return new ResponseEntity<>(character, HttpStatus.CREATED).getBody();
     }
 
     @GetMapping("/characters")
