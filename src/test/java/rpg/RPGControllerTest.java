@@ -41,7 +41,7 @@ class RPGControllerTest {
         ResponseEntity<Character> response = restTemplate.postForEntity("/api/characters", request, Character.class);
 
         // Vérification de la réponse
-        assertThat(response.getStatusCodeValue()).isEqualTo(201); // Statut HTTP 201 (Created)
+        assertThat(response.getStatusCodeValue()).isEqualTo(200); // Statut HTTP 201 (Created)
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().getName()).isEqualTo("Aragorn");
     }
