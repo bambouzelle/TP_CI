@@ -13,19 +13,19 @@ pipeline {
         }
         stage('Performance Tests') {
             steps {
-                sh 'jmeter -n -t /path/to/performance_test.jmx -l /path/to/results.jtl'
+                sh 'jmeter -n -t test.jmx -l results.jtl'
             }
             post {
                 always {
-                    publishPerformanceReport parsers: [[$class: 'JMeterParser', glob: 'path/to/results.jtl']]
+                    publishPerformanceReport parsers: [[$class: 'JMeterParser', glob: 'results.jtl']]
                 }
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    sh 'docker build -t my-rpg-app .'
-                    sh 'docker run -d -p 8080:8080 my-rpg-app'
+                    sh 'docker build -t jenkins-rpg .'
+                    sh 'docker run -d -p 8080:8080 jenkins-rpg'
                 }
             }
         }
