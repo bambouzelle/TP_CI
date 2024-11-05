@@ -70,10 +70,10 @@ public abstract class Character {
 
     public void useSpell(String spellName, Character opponent) {
         for (Spell spell : spells) {
-            if (spell.getName().equalsIgnoreCase(spellName) && this.mana >= spell.getManaCost()) {
-                log.info("{} utilise {} contre {}", this.name, spell.getName(), opponent.getName());
-                opponent.takeDamage(spell.getDamage());
-                this.mana -= spell.getManaCost();
+            if (spell.name().equalsIgnoreCase(spellName) && this.mana >= spell.manaCost()) {
+                log.info("{} utilise {} contre {}", this.name, spell.name(), opponent.getName());
+                opponent.takeDamage(spell.damage());
+                this.mana -= spell.manaCost();
                 return;
             }
         }

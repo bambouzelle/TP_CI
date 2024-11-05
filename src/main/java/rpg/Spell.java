@@ -1,26 +1,11 @@
 package rpg;
 
-public class Spell {
-    private String name;
-    private int damage;
-    private int manaCost;
+import lombok.Getter;
 
-    public Spell(String name, int damage, int manaCost) {
-        this.name = name;
-        this.damage = damage;
-        this.manaCost = manaCost;
-    }
+/**
+ * @param name Getters pour accéder aux attributs
+ */
+@Getter
+public record Spell(String name, int damage, int manaCost) {
 
-    // Getters pour accéder aux attributs
-    public String getName() {
-        return name;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public int getManaCost() {
-        return manaCost;
-    }
 }
