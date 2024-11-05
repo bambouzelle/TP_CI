@@ -1,5 +1,6 @@
 package rpg;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,10 +18,13 @@ class RPGControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Test
-    void testCreateCharacter() {
+    private HttpHeaders headers;
+    private String characterJson;
+
+    @BeforeEach
+    void setUp() {
         // JSON avec le champ "type" pour indiquer la sous-classe Guerrier
-        String characterJson = """
+        characterJson = """
             {
                 "type": "guerrier",
                 "name": "Aragorn",
@@ -31,8 +35,12 @@ class RPGControllerTest {
             """;
 
         // Configuration de l'en-tête pour indiquer le type JSON
-        HttpHeaders headers = new HttpHeaders();
+        headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+    }
+
+    @Test
+    void testCreateCharacter() {
 
         // Création de la requête avec le JSON et les en-têtes
         HttpEntity<String> request = new HttpEntity<>(characterJson, headers);

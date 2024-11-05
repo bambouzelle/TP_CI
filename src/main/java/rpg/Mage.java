@@ -14,7 +14,7 @@ public class Mage extends Character {
     }
 
     public void meditate() {
-        log.info("{} médite pour regagner du mana.", this.name);
-        this.mana += 30;
+        log.info("{} médite pour regagner du mana.", this.getMana());
+        this.recupererMana(30);
     }
 }

@@ -15,7 +15,7 @@ public class Archer extends Character {
 
     // Spécialisation pour l'archer
     public void camouflage() {
-        log.info("{} utilise le camouflage pour éviter les attaques.", this.name);
+        log.info("{} utilise le camouflage pour éviter les attaques.", this.getName());
         // Logique pour réduire les chances de recevoir des dégâts
     }
 }

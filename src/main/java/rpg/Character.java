@@ -29,14 +29,13 @@ import java.util.*;
 @ToString
 public abstract class Character {
 
-    @Getter
-    protected String name;
-    protected int level;
-    protected int health;
-    protected int mana;
-    protected List<Spell> spells;
-    protected boolean isDefending;
-    protected List<Quest> quests;
+    private String name;
+    private int level;
+    private int health;
+    private int mana;
+    private List<Spell> spells;
+    private boolean isDefending;
+    private List<Quest> quests;
 
     protected Character(String name) {
         this.name = name;
@@ -96,6 +95,10 @@ public abstract class Character {
 
     public void addSpell(Spell spell) {
         spells.add(spell);
+    }
+
+    public void recupererMana(int mana) {
+        this.mana += mana;
     }
 }
 

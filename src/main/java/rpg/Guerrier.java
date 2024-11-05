@@ -15,7 +15,7 @@ public class Guerrier extends Character {
 
     // Spécialisation pour le guerrier
     public void rage() {
-        log.info("{} entre en rage, augmentant ses dégâts.", this.name);
+        log.info("{} entre en rage, augmentant ses dégâts.", this.getName());
         // Logique pour augmenter les dégâts temporairement
     }
 }
