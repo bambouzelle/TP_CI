@@ -39,6 +39,6 @@ class CharacterTest {
         character1.attack(character2);
         character1.attack(character3);
 
-        assertNotEquals(character2.getHealth(), character3.getHealth());
+        assertTrue(character2.getHealth() > character3.getHealth());
     }
 }
