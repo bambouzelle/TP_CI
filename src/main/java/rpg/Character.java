@@ -38,7 +38,7 @@ public abstract class Character {
     protected boolean isDefending;
     protected List<Quest> quests;
 
-    public Character(String name) {
+    protected Character(String name) {
         this.name = name;
         this.level = 1;
         this.health = 100;
