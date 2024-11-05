@@ -1,11 +1,13 @@
-package rpg;
+package rpg.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rpg.Character;
+import rpg.Quest;
+import rpg.World;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,18 +22,18 @@ public class RPGController {
     }
 
     @PostMapping("/characters")
-    public Character createCharacter(@RequestBody Character character) {
+    public rpg.Character createCharacter(@RequestBody rpg.Character character) {
         world.addCharacter(character);
         return new ResponseEntity<>(character, HttpStatus.CREATED).getBody();
     }
 
     @GetMapping("/characters")
-    public List<Character> getAllCharacters() {
+    public List<rpg.Character> getAllCharacters() {
         return world.getAliveCharacters();
     }
 
     @PostMapping("/quests")
-    public Character addQuestToCharacter(@RequestParam String characterName, @RequestBody Quest quest) {
+    public rpg.Character addQuestToCharacter(@RequestParam String characterName, @RequestBody Quest quest) {
         for (Character character : world.getAliveCharacters()) {
             if (character.getName().equals(characterName)) {
                 character.addQuest(quest);

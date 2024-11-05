@@ -27,6 +27,8 @@ class WorldTest {
 
     @Test
     void addQuest() {
+        world.addQuest(quest);
+        assertEquals(quest, world.getQuests().get(0));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package rpg;
+package rpg.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +9,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import rpg.Character;
+import rpg.RpgApplication;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -46,7 +48,7 @@ class RPGControllerTest {
         HttpEntity<String> request = new HttpEntity<>(characterJson, headers);
 
         // Envoi de la requête POST avec le JSON brut
-        ResponseEntity<Character> response = restTemplate.postForEntity("/api/characters", request, Character.class);
+        ResponseEntity<rpg.Character> response = restTemplate.postForEntity("/api/characters", request, Character.class);
 
         // Vérification de la réponse
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue(); // Statut HTTP 200 (Created)
