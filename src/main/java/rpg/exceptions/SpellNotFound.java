@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class SpellNotFound extends RuntimeException {
 
-    private String spellName;
+    private final String spellName;
 
     public SpellNotFound(String spellName) {
         this.spellName = spellName;
