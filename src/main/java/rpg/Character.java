@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
+import rpg.exceptions.SpellNotFound;
 
 import java.util.*;
 
@@ -77,6 +78,7 @@ public abstract class Character {
             }
         }
         log.info("{} n'a pas suffisamment de mana ou ne connaît pas ce sort.", this.name);
+        throw new SpellNotFound(spellName);
     }
 
     public void takeDamage(int damage) {
